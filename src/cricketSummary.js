@@ -1,21 +1,21 @@
 const summary = function(overs) { 
-  return overs.map(function(over) {
-    return over.reduce(function(tally, ball){
+  const innings = overs.flatMap(function(over) {return over;})
 
-      if(tally[ball] !== undefined) {
-        tally[ball] += 1;
-      }
+  return innings.reduce(function(tally, ball){
 
-      if(ball !== "NB" && ball !== "WD" && ball !== "W") {
-        tally.total += ball;
-      }
+    if(tally[ball] !== undefined) {
+      tally[ball] += 1;
+    }
 
-      tally.total += tally.WD + tally.NB;
-      tally.extras = tally.WD + tally.NB;
+    if(ball !== "NB" && ball !== "WD" && ball !== "W") {
+      tally.total += ball;
+    }
 
-      return tally;
-    },{total: 0, 4: 0, 6: 0, W: 0, WD: 0, NB: 0, extras: 0})
-  })
+    tally.extras = tally.WD + tally.NB;
+    tally.total += tally.extras;
+
+    return tally;
+  },{total: 0, 4: 0, 6: 0, W: 0, WD: 0, NB: 0, extras: 0})
 };
 
 exports.summary = summary;
