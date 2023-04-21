@@ -21,6 +21,13 @@ const testCricketSummary = function() {
     expected: true 
   });
 
+  fours = summary([[4, 6, 6, 4]])[0][4];
+  let sixes = summary([[4, 6, 6, 4]])[0][6]
+  it("Should give 2 sixes as two sixes are there in over ", {
+    actual: sixes === 2,
+    expected: true 
+  });
+
 };
 
 const test = function() {
