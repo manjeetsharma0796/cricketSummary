@@ -22,12 +22,12 @@ const updateScore = function(tally, delivery) {
 };
 
 const summary = function(overs) { 
-  const innings = overs.flatMap(function(over) {return over;})
+  const innings = overs.flatMap(function(over) {
+    return over;
+  };);
   const tally = {total: 0, 4: 0, 6: 0, W: 0, WD: 0, NB: 0, extras: 0};
 
   return innings.reduce(updateScore, tally); 
 };
-
-console.log(summary([[4, 6]]));
 
 exports.summary = summary;
