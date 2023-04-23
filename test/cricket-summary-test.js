@@ -14,17 +14,17 @@ const testCricketSummary = function() {
 
   displayHeadline("testCricketSummary");
 
-  let fours = summary([[4]])[4];
+  let countOfFour = summary([[4]]).fours;
 
   it("Should give one as four's as only one 4 is given in an over", {
-    actual: fours === 1,
+    actual: countOfFour === 1,
     expected: true 
   });
 
-  fours = summary([[4, 6], [6, 4]])[4];
-  let sixes = summary([[4, 6], [6, 4]])[6]
+  countOfFour = summary([[4, 6], [6, 4]]).fours;
+  let countOfSixes = summary([[4, 6], [6, 4]]).sixes;
   it("Should give 2 sixes as two sixes are there in over ", {
-    actual: sixes === 2,
+    actual: countOfSixes === 2,
     expected: true 
   });
 
